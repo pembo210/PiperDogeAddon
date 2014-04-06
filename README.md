@@ -20,7 +20,7 @@ Piper: A bitcoin hardware paper wallet printer and so much more.  Check out pipe
 
 PemboDoge Update
  
- Added 5 Doge options to the Settings tab in the GUI for version 1.05
+ Added 5 Doge options to the Settings tab in the GUI for version 1.05 - http://i.imgur.com/nsyUjBj.jpg
  
  Replace images in the Images folder to customize your own
  
