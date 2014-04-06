@@ -551,6 +551,11 @@ class Tab4(tk.Frame):
 
 		tk.Radiobutton(coinTypeFrame, text="Bitcoin", variable=self.coinType, value="bitcoin").pack(side=tk.LEFT, padx=5, pady=10)
 		tk.Radiobutton(coinTypeFrame, text="Litecoin", variable=self.coinType, value="litecoin").pack(side=tk.LEFT, padx=5, pady=10)
+		tk.Radiobutton(coinTypeFrame, text="Dogecoin", variable=self.coinType, value="dogecoin").pack(side=tk.LEFT, padx=5, pady=10)
+		tk.Radiobutton(coinTypeFrame, text="Doge1", variable=self.coinType, value="doge1").pack(side=tk.LEFT, padx=5, pady=10)
+		tk.Radiobutton(coinTypeFrame, text="Doge2", variable=self.coinType, value="doge2").pack(side=tk.LEFT, padx=5, pady=10)
+		tk.Radiobutton(coinTypeFrame, text="Doge3", variable=self.coinType, value="doge3").pack(side=tk.LEFT, padx=5, pady=10)
+		tk.Radiobutton(coinTypeFrame, text="Doge4", variable=self.coinType, value="doge4").pack(side=tk.LEFT, padx=5, pady=10)
 
 		coinTypeFrame.pack()
 
@@ -560,7 +565,7 @@ class Tab4(tk.Frame):
 		tk.Entry(addressPrefixFrame, textvariable=self.addrPrefix).pack(side=tk.LEFT, padx=10, pady=10)
 		addressPrefixFrame.pack()
 		
-		tk.Label(self, text="Address prefix is 1 for bitcoin and L for litecoin or key generation will fail.").pack(padx=10)
+		tk.Label(self, text="Address prefix - 1 for bitcoin - L for litecoin - D for Doge - or key generation will fail.").pack(padx=10)
 		tk.Label(self, text="We do not recommend a prefix longer than 3 characters.  ").pack(padx=10)
 		tk.Label(self, text="A prefix just 3 characters long can take up to 30 seconds to generate (for example 1CC).").pack(padx=10)
 		tk.Label(self, text="A prefix 4 characters long can take up to 10 minutes to generate (for example 1cat).").pack(padx=10)
@@ -607,6 +612,27 @@ class Tab4(tk.Frame):
 		if(self.coinType.get() == "litecoin" and self.encType.get() == "bip0038"):
 			self.showMessage("Error!!","BIP0038 is not compatible with litecoin.  Settings not saved.") 
 			self.encType.set("aes")	
+			
+
+		if(self.coinType.get() == "dogecoin" and self.encType.get() == "bip0038"):
+			self.showMessage("Error!!","BIP0038 is not compatible with dogecoin.  Settings not saved.") 
+			self.encType.set("aes")	
+
+		if(self.coinType.get() == "doge1" and self.encType.get() == "bip0038"):
+			self.showMessage("Error!!","BIP0038 is not compatible with dogecoin.  Settings not saved.") 
+			self.encType.set("aes")	
+
+		if(self.coinType.get() == "doge2" and self.encType.get() == "bip0038"):
+			self.showMessage("Error!!","BIP0038 is not compatible with dogecoin.  Settings not saved.") 
+			self.encType.set("aes")	
+
+		if(self.coinType.get() == "doge3" and self.encType.get() == "bip0038"):
+			self.showMessage("Error!!","BIP0038 is not compatible with dogecoin.  Settings not saved.") 
+			self.encType.set("aes")	
+
+		if(self.coinType.get() == "doge4" and self.encType.get() == "bip0038"):
+			self.showMessage("Error!!","BIP0038 is not compatible with dogecoin.  Settings not saved.") 
+			self.encType.set("aes")	
 			return
 
 
@@ -618,6 +644,32 @@ class Tab4(tk.Frame):
 				self.showMessage("Error!!","Invalid address prefix.  Litecoin addresses must begin with L.") 
 				return
 			process = Popen(["./vanitygen-litecoin", "-q", "-n", "-L", "-t","1","-s", "/dev/random", self.addrPrefix.get()], stderr=PIPE)
+
+		elif(self.coinType.get() == "dogecoin"):
+			if(len(self.addrPrefix.get()) == 0 or self.addrPrefix.get()[0] != "D"):
+				self.showMessage("Error!!","Invalid address prefix.  Dogecoin must begin with D.") 
+				return
+			process = Popen(["./vanitygen-litecoin", "-q", "-n", "-X30", "-t","1","-s", "/dev/random", self.addrPrefix.get()], stderr=PIPE)
+		elif(self.coinType.get() == "doge1"):
+			if(len(self.addrPrefix.get()) == 0 or self.addrPrefix.get()[0] != "D"):
+				self.showMessage("Error!!","Invalid address prefix.  Dogecoin must begin with D.") 
+				return
+			process = Popen(["./vanitygen-litecoin", "-q", "-n", "-X30", "-t","1","-s", "/dev/random", self.addrPrefix.get()], stderr=PIPE)
+		elif(self.coinType.get() == "doge2"):
+			if(len(self.addrPrefix.get()) == 0 or self.addrPrefix.get()[0] != "D"):
+				self.showMessage("Error!!","Invalid address prefix.  Dogecoin must begin with D.") 
+				return
+			process = Popen(["./vanitygen-litecoin", "-q", "-n", "-X30", "-t","1","-s", "/dev/random", self.addrPrefix.get()], stderr=PIPE)
+		elif(self.coinType.get() == "doge3"):
+			if(len(self.addrPrefix.get()) == 0 or self.addrPrefix.get()[0] != "D"):
+				self.showMessage("Error!!","Invalid address prefix.  Dogecoin must begin with D.") 
+				return
+			process = Popen(["./vanitygen-litecoin", "-q", "-n", "-X30", "-t","1","-s", "/dev/random", self.addrPrefix.get()], stderr=PIPE)
+		elif(self.coinType.get() == "doge4"):
+			if(len(self.addrPrefix.get()) == 0 or self.addrPrefix.get()[0] != "D"):
+				self.showMessage("Error!!","Invalid address prefix.  Dogecoin must begin with D.") 
+				return
+			process = Popen(["./vanitygen-litecoin", "-q", "-n", "-X30", "-t","1","-s", "/dev/random", self.addrPrefix.get()], stderr=PIPE)
 						
 		else:
 			if(len(self.addrPrefix.get()) == 0 or self.addrPrefix.get()[0] != "1"):

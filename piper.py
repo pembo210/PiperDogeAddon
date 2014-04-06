@@ -63,6 +63,16 @@ def print_keypair(pubkey, privkey, leftBorderText):
 		
 	if(coinType == "litecoin"):
 		finalImgName="ltc-wallet"
+	elif(coinType == "dogecoin"):
+		finalImgName="doge-wallet"
+	elif(coinType == "doge1"):
+		finalImgName="1doge-wallet"
+	elif(coinType == "doge2"):
+		finalImgName="2doge-wallet"
+	elif(coinType == "doge3"):
+		finalImgName="3doge-wallet"
+	elif(coinType == "doge4"):
+		finalImgName="4doge-wallet"
 	else:
 		finalImgName="btc-wallet"
 
